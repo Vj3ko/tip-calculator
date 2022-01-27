@@ -1,0 +1,38 @@
+@use "./typography.scss" as *;
+@use "./colors.scss" as *;
+@use "../utilities/" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background: $bg-cyan;
+  font-family: $space-mono;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p {
+  font-size: rem(16);
+}
+
+input,
+button {
+  font-size: rem(24);
+}
+
+ul {
+  list-style-type: none;
+}

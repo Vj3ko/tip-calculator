@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="./dist/style.css" />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="./images/logo.svg" alt="" />
+    </div>
+
+    <main>
+      <section class="input">
+        <label class="input__title" for="bill">
+          Bill
+
+          <div class="input__container">
+            <input type="number" id="bill" data-bill placeholder="0"/>
+          </div>
+         
+        </label>
+        
+        <section class="input__title">
+          Select Tip %
+          <div class="grid-container">
+            <div class="grid-item">
+              <button data-tip value="5">5%</button>
+            </div>
+            <div class="grid-item">
+              <button
+              value="10"
+                data-tip
+              >10%</button>
+            </div>
+            <div class="grid-item">
+              <button
+                data-tip
+                value="15"
+              >15%</button>
+            </div>
+            <div class="grid-item">
+              <button
+                data-tip
+                value="25"
+              >25%</button>
+            </div>
+            <div class="grid-item">
+              <button
+                data-tip
+                value="50"
+              >50%</button>
+            </div>
+            <div class="grid-item custom">
+              <input
+                type="number"
+                data-tip
+                placeholder="Custom"
+                class="custom-input"
+                maxlength="4"
+                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              ></input>
+            </div>
+          </div>
+        </section>
+
+        <label class="input__title" for="people">
+          Number of People
+
+          <div class="input__container people">
+            <input
+              type="number"
+              id="people"
+              name="people"
+              class="people"
+              data-people
+              placeholder="0"
+            />
+          </div>
+        </label>
+      </section>
+      <section class="output">
+        <div class="output__tip flex">
+          <div class="output__tip_amount">
+            <h2>Tip Amount</h2>
+            <span class="person">/ person</span>
+          </div>
+          <span class="number" data-amount>$0.00</span>
+        </div>
+        <div class="output__total flex">
+          <div class="output__total_amount">
+            <h2>Total</h2>
+            <span class="person">/ person</span>
+          </div>
+          <span class="number" data-total>$0.00</span>
+        </div>
+        <button class="btn-reset" data-reset  disabled>Reset</button>
+      </section>
+    </main>
+
+    <script src="./app/js/script.js"></script>
+  </body>
+</html>

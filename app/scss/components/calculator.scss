@@ -1,0 +1,211 @@
+@use "../global/" as *;
+@use "../utilities/" as *;
+
+.logo {
+  max-width: rem(100);
+  margin: rem(35) auto;
+
+  img {
+    width: 100%;
+  }
+}
+
+main {
+  background: $white;
+  padding: rem(50);
+  border-radius: rem(30) rem(30) 0 0;
+  max-width: rem(375);
+  margin: auto;
+
+  @include breakpoint("large") {
+    max-width: rem(920);
+    display: flex;
+    gap: rem(50);
+    border-radius: rem(30);
+  }
+
+  .input {
+    @include breakpoint("large") {
+      width: 100%;
+    }
+
+    &__title {
+      display: block;
+      margin-bottom: rem(40);
+      font-weight: bold;
+      color: $dark-gray-cyan1;
+      position: relative;
+
+      input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-family: $space-mono;
+        font-weight: bold;
+        border-radius: rem(5);
+        text-align: center;
+        cursor: pointer;
+        caret-color: $cyan;
+      }
+
+      .input__container {
+        margin-top: rem(10);
+        width: 100%;
+        position: relative;
+
+        &::before {
+          content: url(../../../images/icon-dollar.svg);
+          position: absolute;
+          top: 50%;
+          left: rem(20);
+          width: rem(12);
+          height: rem(18);
+          transform: translateY(-50%);
+          pointer-events: none;
+        }
+
+        &.people::before {
+          content: url(../../../images/icon-person.svg);
+        }
+
+        input {
+          text-align: right;
+          background: $light-gray-cyan2;
+          color: $dark-cyan;
+
+          padding: 0 rem(20);
+        }
+      }
+
+      .grid-container {
+        margin-top: rem(10);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: rem(20);
+
+        @include breakpoint("large") {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-item {
+          background: $dark-cyan;
+          display: flex;
+          text-align: center;
+          border-radius: rem(5);
+
+          button {
+            display: block;
+            width: 100%;
+            padding: rem(5) 0;
+            color: $white;
+            font-family: $space-mono;
+            font-weight: bold;
+            background: transparent;
+            transition: 250ms ease-in-out;
+            cursor: pointer;
+            border-radius: rem(5);
+            border: none;
+
+            &:hover,
+            &:focus,
+            &:active {
+              background: $cyan;
+              color: $dark-cyan;
+            }
+
+            &:focus-visible {
+              outline: none;
+            }
+          }
+
+          &.custom {
+            background: $light-gray-cyan2;
+
+            input {
+              color: $dark-cyan;
+              background: inherit;
+              transition: 250ms ease-in-out;
+              outline: 1px solid transparent;
+
+              &::placeholder {
+                color: $dark-cyan;
+                font-size: rem(20);
+                text-align: right;
+                padding-right: rem(20);
+              }
+
+              &:active,
+              &:focus,
+              &:hover {
+                background: $light-gray-cyan2;
+                outline: 1px solid $cyan;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .output {
+    background: $dark-cyan;
+    border-radius: rem(10);
+    padding: rem(35) rem(20);
+
+    @include breakpoint("large") {
+      width: 100%;
+    }
+
+    h2 {
+      font-size: rem(16);
+      color: $white;
+    }
+
+    .person {
+      font-size: rem(14);
+      color: $dark-gray-cyan2;
+    }
+
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: rem(20);
+    }
+
+    .number {
+      font-size: rem(25);
+      font-weight: bold;
+      color: $cyan;
+      word-break: break-all;
+    }
+
+    .btn-reset {
+      display: block;
+      width: 100%;
+      border: none;
+      outline: none;
+      background: $cyan;
+      color: $dark-cyan;
+      padding: rem(5) 0;
+      text-transform: uppercase;
+      font-family: $space-mono;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: rem(5);
+      transition: 250ms ease-in-out;
+
+      &:disabled {
+        opacity: 0.3;
+      }
+
+      &:focus {
+        outline: 1px solid $white;
+      }
+
+      @include breakpoint("large") {
+        transform: translateY(rem(135));
+      }
+    }
+  }
+}
